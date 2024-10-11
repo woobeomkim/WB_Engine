@@ -1,10 +1,11 @@
 #include "wbApplication.h"
+#include "wbInput.h"
 
 namespace wb
 {
 	Application::Application()
 		: mHwnd(nullptr),
-		mHdc(nullptr),
+		mHdc(nullptr)
 	{
 	}
 	Application::~Application()
@@ -16,6 +17,9 @@ namespace wb
 		mHdc = GetDC(hwnd);
 
 		mPlayer.SetPosition(0, 0);
+		mMonster.SetPosition(0, 0);
+
+		Input::Initialize();
 	}
 	void Application::Run()
 	{
@@ -25,9 +29,9 @@ namespace wb
 	}
 	void Application::Update()
 	{
-		mSpeed += 0.0001f;
-	
+		Input::Update();
 		mPlayer.Update();
+		mMonster.Update();
 	}
 
 	void Application::LateUpdate()
@@ -36,5 +40,6 @@ namespace wb
 	void Application::Render()
 	{
 		mPlayer.Render(mHdc);
+		mMonster.Render(mHdc);
 	}
 }
