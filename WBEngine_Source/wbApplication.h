@@ -11,7 +11,7 @@ namespace wb
 		Application();
 		~Application();
 
-		void Initailize(HWND hwnd);
+		void Initailize(HWND hwnd, UINT width, UINT height);
 		void Run();
 
 		void Update();
@@ -21,6 +21,13 @@ namespace wb
 		HWND mHwnd;
 		HDC mHdc;
 		
+		HDC mBackHdc;
+		HBITMAP mBackBitmap;
+
+		UINT mWidth;
+		UINT mHeight;
+
+
 		//플레이어
 		GameObject mPlayer;
 		GameObjectRed mMonster;
