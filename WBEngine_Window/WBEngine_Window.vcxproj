@@ -18,6 +18,13 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="wbLoadScene.h" />
+    <ClInclude Include="wbPlayScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="wbPlayScene.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

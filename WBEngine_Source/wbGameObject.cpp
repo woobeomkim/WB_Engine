@@ -4,7 +4,7 @@
 
 namespace wb
 {
-	GameObject::GameObject()
+	GameObject::GameObject() : mX(0), mY(0)
 	{
 	}
 	GameObject::~GameObject()
@@ -29,6 +29,20 @@ namespace wb
 		{
 			mY += speed * Time::DeltaTime();
 		}
+		if (Input::GetKey(eKeyCode::Space))
+		{
+			mMisiile = new Misiile();
+			mMisiile->SetPosition(mX , mY);
+			
+			if (mY < 0)
+			{
+				delete mMisiile;
+				mMisiile = nullptr;
+			}
+		}
+
+		if (mMisiile)
+			mMisiile->Update();
 	}
 	void GameObject::LateUpdate()
 	{
@@ -36,5 +50,7 @@ namespace wb
 	void GameObject::Render(HDC hdc)
 	{
 		Rectangle(hdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
+		if(mMisiile)
+			mMisiile->Render(hdc);
 	}
 }

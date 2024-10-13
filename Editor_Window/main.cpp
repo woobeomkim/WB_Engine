@@ -4,6 +4,8 @@
 #include "framework.h"
 #include "Editor_Window.h"
 #include "..\\WBEngine_Source\\wbApplication.h"
+#include "..\\WBEngine_Window\\wbLoadScene.h"
+
 
 #pragma comment (lib,"..\\x64\\Debug\\WbEngine_Window.lib")
 wb::Application app;
@@ -125,7 +127,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
-
+   
+   // load Scene
+   wb::LoadScenes();
    return TRUE;
 }
 

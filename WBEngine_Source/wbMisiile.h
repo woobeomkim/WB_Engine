@@ -1,14 +1,13 @@
 #pragma once
 #include "CommonInclude.h"
-#include "wbMisiile.h"
 
 namespace wb
 {
-	class GameObject
+	class Misiile
 	{
 	public:
-		GameObject();
-		~GameObject();
+		Misiile();
+		~Misiile();
 
 		void SetPosition(float x, float y)
 		{
@@ -26,7 +25,5 @@ namespace wb
 		// 게임 오브젝트의 좌표
 		float mX;
 		float mY;
-
-		Misiile* mMisiile;
 	};
 }
