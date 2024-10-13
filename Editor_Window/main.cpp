@@ -8,7 +8,10 @@
 
 
 #pragma comment (lib,"..\\x64\\Debug\\WbEngine_Window.lib")
-wb::Application app;
+wb::Application application;
+
+ULONG_PTR gpToken;
+Gdiplus::GdiplusStartupInput gpsi;
 
 #define MAX_LOADSTRING 100
 
@@ -63,9 +66,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
         else
         {
-            app.Run();
+            application.Run();
         }
     }
+    Gdiplus::GdiplusShutdown(gpToken);
 
     return (int) msg.wParam;
 }
@@ -118,7 +122,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
-   app.Initailize(hWnd, width, height);
+   application.Initailize(hWnd, width, height);
 
    if (!hWnd)
    {
@@ -128,6 +132,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
    
+   Gdiplus::GdiplusStartup(&gpToken, &gpsi, nullptr);
    // load Scene
    wb::LoadScenes();
    return TRUE;

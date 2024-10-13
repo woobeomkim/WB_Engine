@@ -3,6 +3,9 @@
 #include "wbPlayer.h"
 #include "wbTransform.h"
 #include "wbSpriteRenderer.h"
+#include "wbInput.h"
+#include "wbSceneManager.h"
+#include "wbTitleScene.h"
 
 namespace wb
 {
@@ -15,32 +18,20 @@ namespace wb
 	void PlayScene::Initialize()
 	{
 		{
-			Player* p1 = new Player();
+			bg = new Player();
 			Transform* tr =
-				p1->AddComponent<Transform>();
-			tr->SetPos(800, 450);
+				bg->AddComponent<Transform>();
+			tr->SetPos(Vector2(0,0));
 			tr->SetName(L"TR");
 
 			SpriteRenderer* sr
-				= p1->AddComponent<SpriteRenderer>();
+				= bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
+			sr->ImageLoad(L"C:\\Users\\woobu\\source\\repos\\Editor_Window\\Resources\\CloudOcean.png");
 
-			AddGameObject(p1);
+			AddGameObject(bg, eLayerType::BackGround);
 		}
 
-		{
-			Player* p1 = new Player();
-			Transform* tr =
-				p1->AddComponent<Transform>();
-			tr->SetPos(300, 750);
-			tr->SetName(L"TR");
-
-			SpriteRenderer* sr
-				= p1->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-
-			AddGameObject(p1);
-		}
 	}
 	void PlayScene::Update()
 	{
@@ -49,9 +40,26 @@ namespace wb
 	void PlayScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+
+		if (Input::GetKeyDown(eKeyCode::N))
+		{
+			SceneManager::LoadScene(L"TitleScene");
+		}
 	}
 	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+
+		wchar_t str[50] = L"Play Scene";
+		TextOut(hdc, 0, 0, str, wcslen(str));
+	}
+	void PlayScene::OnEnter()
+	{
+	}
+	void PlayScene::OnExit()
+	{
+		Transform* tr =
+			bg->GetComponent<Transform>();
+		tr->SetPos(Vector2(0, 0));
 	}
 }

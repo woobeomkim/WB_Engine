@@ -21,13 +21,14 @@ namespace wb
 		{
 			T* comp = new T();
 			comp->SetOwner(this);
+			comp->Initialize();
 			mComponents.push_back(comp);
 
 			return comp;
 		}
 
 		template<typename T>
-		T* GetComp()
+		T* GetComponent()
 		{
 			T* component = nullptr;
 			for (Component* comp : mComponents)

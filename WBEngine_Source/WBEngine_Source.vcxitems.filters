@@ -22,9 +22,22 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)wbSceneManager.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)wbComponent.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)wbSpriteRenderer.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)wbTransform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbResource.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbSpriteRenderer.cpp">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbTransform.cpp">
+      <Filter>Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbLayer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbGameObjectRed.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbMisiile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
@@ -51,9 +64,25 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)wbSceneManager.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)wbComponent.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)wbSpriteRenderer.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)wbTransform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbResource.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbSpriteRenderer.h">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbTransform.h">
+      <Filter>Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbEnums.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbLayer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbGameObjectRed.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbMisiile.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

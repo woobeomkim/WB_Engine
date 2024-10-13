@@ -1,6 +1,7 @@
 #pragma once
 #include "wbEntity.h"
 #include "wbGameObject.h"
+#include "wbLayer.h"
 
 namespace wb 
 {
@@ -15,8 +16,11 @@ namespace wb
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 	
-		void AddGameObject(GameObject* gameObject);
+		virtual void OnEnter();
+		virtual void OnExit();
+
+		void AddGameObject(GameObject* gameObj, eLayerType type);
 	private:
-		std::vector<GameObject*> mGameObjects;
+		std::vector<Layer*> mLayers;
 	};
 }

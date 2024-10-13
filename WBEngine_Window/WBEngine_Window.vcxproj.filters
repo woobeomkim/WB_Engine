@@ -18,12 +18,22 @@
     <ClInclude Include="wbPlayScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="wbPlayer.h" />
+    <ClInclude Include="wbPlayer.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="wbTitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wbPlayScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="wbPlayer.cpp" />
+    <ClCompile Include="wbPlayer.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="wbTitleScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
