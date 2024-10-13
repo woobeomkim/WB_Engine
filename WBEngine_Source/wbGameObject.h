@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
 #include "wbMisiile.h"
+#include "wbComponent.h"
 
 namespace wb
 {
@@ -10,23 +11,35 @@ namespace wb
 		GameObject();
 		~GameObject();
 
-		void SetPosition(float x, float y)
+		virtual void Initialize();
+		virtual void Update();
+		virtual void LateUpdate();
+		virtual void Render(HDC hdc);
+
+		template<typename T>
+		T* AddComponent()
 		{
-			mX = x;
-			mY = y;
+			T* comp = new T();
+			comp->SetOwner(this);
+			mComponents.push_back(comp);
+
+			return comp;
 		}
 
-		void Update();
-		void LateUpdate();
-		void Render(HDC hdc);
-
-		float GetPositionX() { return mX; }
-		float GetPositionY() { return mY; }
+		template<typename T>
+		T* GetComp()
+		{
+			T* component = nullptr;
+			for (Component* comp : mComponents)
+			{
+				component = dynamic_cast<T*>(comp);
+				if (component)
+					break;
+			}
+			return component;
+		}
 	private:
 		// 게임 오브젝트의 좌표
-		float mX;
-		float mY;
-
-		Misiile* mMisiile;
+		std::vector<Component*> mComponents;
 	};
 }

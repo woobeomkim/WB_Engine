@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbGameObjectRed.h" />
@@ -23,10 +24,13 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)wbMisiile.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbTime.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbTransform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)wbApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)wbEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)wbGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)wbGameObjectRed.cpp" />
@@ -34,6 +38,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)wbMisiile.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)wbScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)wbSceneManager.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)wbTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbTransform.cpp" />
   </ItemGroup>
 </Project>

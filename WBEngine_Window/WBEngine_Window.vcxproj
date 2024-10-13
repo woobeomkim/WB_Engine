@@ -20,9 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="wbLoadScene.h" />
+    <ClInclude Include="wbPlayer.h" />
     <ClInclude Include="wbPlayScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="wbPlayer.cpp" />
     <ClCompile Include="wbPlayScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
