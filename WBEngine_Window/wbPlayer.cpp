@@ -23,7 +23,7 @@ namespace wb
 			Transform* tr = GetComponent<Transform>();
 			Vector2 pos = tr->GetPosition();
 			pos.x += 100.0f * Time::DeltaTime();
-			tr->SetPos(pos);
+			tr->SetPosition(pos);
 		}
 	}
 	void Player::LateUpdate()

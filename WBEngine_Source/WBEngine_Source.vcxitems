@@ -25,6 +25,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)wbLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbMisiile.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbSceneManager.h" />

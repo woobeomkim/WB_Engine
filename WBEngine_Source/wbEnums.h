@@ -1,6 +1,6 @@
 #pragma once
 
-namespace wb
+namespace wb::enums
 {
 	enum class eLayerType
 	{

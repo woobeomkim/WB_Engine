@@ -4,13 +4,13 @@ namespace wb
 {
 	Scene::Scene() : mLayers{}
 	{
-		mLayers.resize((UINT)eLayerType::Max);
+		mLayers.resize((UINT)enums::eLayerType::Max);
 		/*std::for_each(mLayers.begin(), mLayers.end(),
 			[&](Layer*& layer)
 		{
 				layer = new Layer();
 		});*/
-		for (size_t i = 0; i < (UINT)eLayerType::Max; i++)
+		for (size_t i = 0; i < (UINT)enums::eLayerType::Max; i++)
 		{
 			mLayers[i] = new Layer();
 		}
@@ -61,7 +61,7 @@ namespace wb
 	{
 	}
 
-	void Scene::AddGameObject(GameObject* gameObj, eLayerType type)
+	void Scene::AddGameObject(GameObject* gameObj, enums::eLayerType type)
 	{
 		mLayers[(UINT)type]->AddGameObject(gameObj);
 	}

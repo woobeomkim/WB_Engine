@@ -83,6 +83,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)wbGameObjectRed.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbMisiile.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbObject.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
