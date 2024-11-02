@@ -2,6 +2,17 @@
 
 namespace wb::enums
 {
+
+	enum class eComponentType
+	{
+		Transform,
+		SpriteRenderer,
+		Animator,
+		Script,
+		Camera,
+		End
+	};
+
 	enum class eLayerType
 	{
 		None,
@@ -9,6 +20,16 @@ namespace wb::enums
 		// Tree
 		// character
 		Player,
+		Particle,
 		Max = 16,
+	};
+
+	enum class eResourceType
+	{
+		Texture,
+		AudioClip,
+		Animation,
+		Prefab,
+		End,
 	};
 }

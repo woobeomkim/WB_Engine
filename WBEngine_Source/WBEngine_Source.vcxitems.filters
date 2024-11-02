@@ -22,8 +22,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)wbSceneManager.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)wbMath.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)wbResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)wbSpriteRenderer.cpp">
       <Filter>Component\SpriteRenderer</Filter>
     </ClCompile>
@@ -38,6 +36,33 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)wbGameObjectRed.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)wbMisiile.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbMath.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbResource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbResources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbTexture.cpp">
+      <Filter>Resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbScript.cpp">
+      <Filter>Component\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbCamera.cpp">
+      <Filter>Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbRenderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbAnimation.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbAnimator.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
@@ -64,8 +89,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)wbSceneManager.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)wbMath.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)wbResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbSpriteRenderer.h">
       <Filter>Component\SpriteRenderer</Filter>
     </ClInclude>
@@ -85,6 +108,33 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)wbMisiile.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)wbObject.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbMath.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbResource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbResources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbTexture.h">
+      <Filter>Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbScript.h">
+      <Filter>Component\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbCamera.h">
+      <Filter>Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbRenderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbAnimation.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbAnimator.h">
+      <Filter>Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +167,18 @@
     </Filter>
     <Filter Include="Scene">
       <UniqueIdentifier>{dcdeedfd-7cba-4b71-82da-6ee6a4fde239}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{5ad444bc-adde-4b50-bb94-086566b1c62a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{d29c3b1e-58af-4b15-b5f2-a7bd2237cb45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Camera">
+      <UniqueIdentifier>{f9654524-ec7a-4ffe-9a9b-9c043b148260}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{c645a9df-9e5d-4051-b031-57d2d371ab23}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

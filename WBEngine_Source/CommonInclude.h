@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <string>
 #include <map>
+#include <assert.h>
 
 #include "wbMath.h"
 #include "wbEnums.h"

@@ -7,6 +7,12 @@
 #include "wbSceneManager.h"
 #include "wbTitleScene.h"
 #include "wbObject.h"
+#include "wbTexture.h"
+#include "wbResources.h"
+#include "wbPlayerScript.h"
+#include "wbCamera.h"
+#include "wbRenderer.h"
+#include "wbAnimator.h"
 
 namespace wb
 {
@@ -18,27 +24,71 @@ namespace wb
 	}
 	void PlayScene::Initialize()
 	{
-		{
-		/*	bg = new Player();
-			Transform* tr =
-				bg->AddComponent<Transform>();
-			tr->SetPosition(Vector2(0,0));
-			tr->SetName(L"TR");
+		// main camera
+		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 440.0f));
+		Camera* camearaComp = camera->AddComponent<Camera>();
+		renderer::mainCamera = camearaComp;
+		//camera->AddComponent<PlayerScript>();
 
-			SpriteRenderer* sr
-				= bg->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-			sr->ImageLoad(L"C:\\Users\\woobu\\source\\repos\\Editor_Window\\Resources\\CloudOcean.png");
 
-			AddGameObject(bg, eLayerType::BackGround);*/
+		// 게임오브젝트 만들기전에 리소스들 전부 Load 해두면 좋다
+		mPlayer = object::Instantiate<Player>(enums::eLayerType::Particle /*, Vector2(100, 100) */ );
+		/*SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
+		sr->SetName(L"SR");
+		sr->SetSize(Vector2(3.0f, 3.0f));*/
 		
-			bg = object::Instantiate<Player>(enums::eLayerType::BackGround, Vector2(100, 100));
-			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-			sr->ImageLoad(L"C:\\Users\\woobu\\source\\repos\\Editor_Window\\Resources\\CloudOcean.png");
+		mPlayer->AddComponent<PlayerScript>();
+		//bg->AddComponent<PlayerScript>();
+		
+		/*
+		graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"MapleEffect");
+		Animator* animator = mPlayer->AddComponent<Animator>();
+		animator->CreateAnimation(L"CatFrontMove", packmanTexture
+			, Vector2(0.0f, 0.0f), Vector2(386.0f, 246.0f), Vector2::Zero, 8, 0.1f);
+		
+		animator->PlayAnimation(L"CatFrontMove", true);*/
 
-		}
+		
+		graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"Cat");
+		Animator* animator = mPlayer->AddComponent<Animator>();
+		animator->CreateAnimation(L"DownWalk", packmanTexture
+			, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		animator->CreateAnimation(L"RightWalk", packmanTexture
+			, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		animator->CreateAnimation(L"UpWalk", packmanTexture
+			, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		animator->CreateAnimation(L"LeftWalk", packmanTexture
+			, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		animator->CreateAnimation(L"SitDown", packmanTexture
+			, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		animator->CreateAnimation(L"Grooming", packmanTexture
+			, Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
 
+
+		animator->PlayAnimation(L"SitDown", false);
+		
+		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
+		mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+		//mPlayer->GetComponent<Transform>()->SetRotation(30.0f);
+
+		/*sr->SetTexture(packmanTexture);*/
+
+		// 게임오브젝트 만들기전에 리소스들 전부 Load 해두면 좋다
+		GameObject* bg = object::Instantiate<GameObject>(enums::eLayerType::Player /*, Vector2(100, 100) */);
+		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
+		bgSr->SetName(L"SR");
+		bgSr->SetSize(Vector2(3.0f, 3.0f));
+
+		//bg->AddComponent<PlayerScript>();
+
+		graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"Bubble");
+		bgSr->SetTexture(bgTexture);
+
+
+		/*graphics::Texture* tex = new graphics::Texture();
+		tex->Load(L"C:\\Users\\woobu\\source\\repos\\Editor_Window\\Resources\\CloudOcean.png");
+	*/
+		Scene::Initialize();
 	}
 	void PlayScene::Update()
 	{
@@ -56,9 +106,10 @@ namespace wb
 	void PlayScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
-
+		/*
 		wchar_t str[50] = L"Play Scene";
 		TextOut(hdc, 0, 0, str, wcslen(str));
+		*/
 	}
 	void PlayScene::OnEnter()
 	{

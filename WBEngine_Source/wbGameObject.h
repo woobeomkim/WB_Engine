@@ -22,8 +22,9 @@ namespace wb
 			T* comp = new T();
 			comp->SetOwner(this);
 			comp->Initialize();
-			mComponents.push_back(comp);
-
+			
+			mComponents[(UINT)comp->GetType()] = comp;
+			
 			return comp;
 		}
 

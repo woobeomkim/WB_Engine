@@ -24,6 +24,10 @@
     <ClInclude Include="wbTitleScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="wbLoadResources.h" />
+    <ClInclude Include="wbPlayerScript.h">
+      <Filter>Script</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wbPlayScene.cpp">
@@ -34,6 +38,9 @@
     </ClCompile>
     <ClCompile Include="wbTitleScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="wbPlayerScript.cpp">
+      <Filter>Script</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

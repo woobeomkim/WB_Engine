@@ -18,6 +18,9 @@ namespace wb
 		void LateUpdate();
 		void Render();
 	
+		HDC GetHdc() { return mHdc; }
+		UINT GetWidth() { return mWidth; }
+		UINT GetHeight() { return mHeight; }
 	private:
 		void clearRenderTarget();
 		void copyRenderTarget(HDC source, HDC dest);

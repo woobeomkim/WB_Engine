@@ -5,7 +5,7 @@
 #include "Editor_Window.h"
 #include "..\\WBEngine_Source\\wbApplication.h"
 #include "..\\WBEngine_Window\\wbLoadScene.h"
-
+#include "..\\WBEngine_Window\\wbLoadResources.h"
 
 #pragma comment (lib,"..\\x64\\Debug\\WbEngine_Window.lib")
 wb::Application application;
@@ -116,8 +116,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
-   const UINT width = 1600;
-   const UINT height = 900;
+   const UINT width = 672;
+   const UINT height = 846;
 
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
@@ -134,6 +134,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, nullptr);
    // load Scene
+   wb::LoadResources();
    wb::LoadScenes();
    return TRUE;
 }
