@@ -136,6 +136,11 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    // load Scene
    wb::LoadResources();
    wb::LoadScenes();
+
+   int a = 0;
+   
+   srand((unsigned int)&a);
+   //srand(time(0));
    return TRUE;
 }
 

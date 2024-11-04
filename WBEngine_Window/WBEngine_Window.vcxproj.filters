@@ -28,6 +28,12 @@
     <ClInclude Include="wbPlayerScript.h">
       <Filter>Script</Filter>
     </ClInclude>
+    <ClInclude Include="wbCat.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="wbCatScript.h">
+      <Filter>Script</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wbPlayScene.cpp">
@@ -40,6 +46,12 @@
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="wbPlayerScript.cpp">
+      <Filter>Script</Filter>
+    </ClCompile>
+    <ClCompile Include="wbCat.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="wgCatScript.cpp">
       <Filter>Script</Filter>
     </ClCompile>
   </ItemGroup>

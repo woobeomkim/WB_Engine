@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="wbCat.h" />
+    <ClInclude Include="wbCatScript.h" />
     <ClInclude Include="wbLoadResources.h" />
     <ClInclude Include="wbLoadScene.h" />
     <ClInclude Include="wbPlayer.h" />
@@ -27,10 +29,12 @@
     <ClInclude Include="wbTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="wbCat.cpp" />
     <ClCompile Include="wbPlayer.cpp" />
     <ClCompile Include="wbPlayerScript.cpp" />
     <ClCompile Include="wbPlayScene.cpp" />
     <ClCompile Include="wbTitleScene.cpp" />
+    <ClCompile Include="wgCatScript.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

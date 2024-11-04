@@ -13,6 +13,8 @@
 #include "wbCamera.h"
 #include "wbRenderer.h"
 #include "wbAnimator.h"
+#include "wbCat.h"
+#include "wbCatScript.h"
 
 namespace wb
 {
@@ -74,20 +76,63 @@ namespace wb
 		/*sr->SetTexture(packmanTexture);*/
 
 		// 게임오브젝트 만들기전에 리소스들 전부 Load 해두면 좋다
-		GameObject* bg = object::Instantiate<GameObject>(enums::eLayerType::Player /*, Vector2(100, 100) */);
-		SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
-		bgSr->SetName(L"SR");
-		bgSr->SetSize(Vector2(3.0f, 3.0f));
+		//GameObject* bg = object::Instantiate<GameObject>(enums::eLayerType::Player /*, Vector2(100, 100) */);
+		//SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
+		//bgSr->SetName(L"SR");
+		//bgSr->SetSize(Vector2(3.0f, 3.0f));
 
-		//bg->AddComponent<PlayerScript>();
+		////bg->AddComponent<PlayerScript>();
 
-		graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"Bubble");
-		bgSr->SetTexture(bgTexture);
+		//graphics::Texture* bgTexture = Resources::Find<graphics::Texture>(L"Bubble");
+		//bgSr->SetTexture(bgTexture);
 
 
 		/*graphics::Texture* tex = new graphics::Texture();
 		tex->Load(L"C:\\Users\\woobu\\source\\repos\\Editor_Window\\Resources\\CloudOcean.png");
 	*/
+
+
+		Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal /*, Vector2(100, 100) */);
+		/*SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
+		sr->SetName(L"SR");
+		sr->SetSize(Vector2(3.0f, 3.0f));*/
+
+		cat->AddComponent<CatScript>();
+		//bg->AddComponent<PlayerScript>();
+
+		/*
+		graphics::Texture* packmanTexture = Resources::Find<graphics::Texture>(L"MapleEffect");
+		Animator* animator = mPlayer->AddComponent<Animator>();
+		animator->CreateAnimation(L"CatFrontMove", packmanTexture
+			, Vector2(0.0f, 0.0f), Vector2(386.0f, 246.0f), Vector2::Zero, 8, 0.1f);
+
+		animator->PlayAnimation(L"CatFrontMove", true);*/
+
+
+		graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
+		Animator* catAnimator = cat->AddComponent<Animator>();
+		catAnimator->CreateAnimation(L"DownWalk", catTex
+			, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		catAnimator->CreateAnimation(L"RightWalk", catTex
+			, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		catAnimator->CreateAnimation(L"UpWalk", catTex
+			, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		catAnimator->CreateAnimation(L"LeftWalk", catTex
+			, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		catAnimator->CreateAnimation(L"SitDown", catTex
+			, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		catAnimator->CreateAnimation(L"Grooming", catTex
+			, Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		catAnimator->CreateAnimation(L"LayDown", catTex
+			, Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+
+
+		catAnimator->PlayAnimation(L"SitDown", false);
+
+		cat->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
+		cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+		//mPlayer->GetComponent<Transform>()->SetRotation(30.0f);
+
 		Scene::Initialize();
 	}
 	void PlayScene::Update()

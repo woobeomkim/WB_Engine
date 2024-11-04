@@ -34,6 +34,7 @@ namespace wb
 		
 		case wb::PlayerScript::eState::Sleep:
 			break;
+	
 		case wb::PlayerScript::eState::Attack:
 			break;
 		default:
