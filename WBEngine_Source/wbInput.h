@@ -17,6 +17,7 @@ namespace wb
 		A,S,D,F,G,H,J,K,L,
 		Z,X,C,V,B,N,M,
 		Left,Right,Down,Up,Space,
+		LButton, MButton ,RButton,
 		End,
 	};
 
@@ -36,6 +37,7 @@ namespace wb
 		static bool GetKeyDown(eKeyCode key) { return Keys[(UINT)key].state == eKeyState::Down; }
 		static bool GetKeyUp(eKeyCode key) { return Keys[(UINT)key].state == eKeyState::Up; }
 		static bool GetKey(eKeyCode key) { return Keys[(UINT)key].state == eKeyState::Pressed; }
+		static math::Vector2 GetMousePosition() { return mMousePoistion; }
 
 	private:
 		static void createKeys();
@@ -45,8 +47,11 @@ namespace wb
 		static bool isKeyDown(eKeyCode code);
 		static void updateKeyDown(Key& key);
 		static void updateKeyUp(Key& key);
-		
+		static void getMousePositionByWindow();
+		static void clearKeys();
+
 	private:
 		static std::vector<Key> Keys;
+		static math::Vector2 mMousePoistion;
 	};
 }
