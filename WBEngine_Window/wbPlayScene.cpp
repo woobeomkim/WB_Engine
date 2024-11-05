@@ -34,8 +34,9 @@ namespace wb
 
 		// 게임오브젝트 만들기전에 리소스들 전부 Load 해두면 좋다
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player /*, Vector2(100, 100) */ );
-		mPlayer->AddComponent<PlayerScript>();
+		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 		
+
 		graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
 		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
 		playerAnimator->CreateAnimation(L"Idle", playerTex
@@ -46,6 +47,8 @@ namespace wb
 
 		playerAnimator->PlayAnimation(L"Idle", false);
 		
+		playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::AttackEffect, plScript);
+
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
 		//mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 	
@@ -74,6 +77,7 @@ namespace wb
 
 
 		catAnimator->PlayAnimation(L"SitDown", false);
+		camearaComp->SetTarget(cat);
 
 		cat->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
 		cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));

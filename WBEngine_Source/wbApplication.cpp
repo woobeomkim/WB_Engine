@@ -2,6 +2,7 @@
 #include "wbInput.h"
 #include "wbTime.h"
 #include "wbSceneManager.h"
+#include "wbResources.h"
 
 namespace wb
 {
@@ -54,6 +55,11 @@ namespace wb
 		SceneManager::Render(mBackHdc);
 		
 		copyRenderTarget(mBackHdc, mHdc);
+	}
+	void Application::Release()
+	{
+		SceneManager::Release();
+		Resources::Release();
 	}
 	void Application::clearRenderTarget()
 	{

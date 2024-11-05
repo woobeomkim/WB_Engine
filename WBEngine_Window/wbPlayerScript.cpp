@@ -82,6 +82,9 @@ namespace wb
 	void PlayerScript::Render(HDC hdc)
 	{
 	}
+	void PlayerScript::AttackEffect()
+	{
+	}
 	void PlayerScript::idle()
 	{
 		if (Input::GetKey(eKeyCode::LButton))

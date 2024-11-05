@@ -17,6 +17,11 @@ namespace wb
 	}
 	Scene::~Scene()
 	{
+		for (auto* layer : mLayers)
+		{
+			delete layer;
+			layer = nullptr;
+		}
 	}
 	void Scene::Initialize()
 	{
