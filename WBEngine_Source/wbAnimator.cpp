@@ -108,7 +108,7 @@ namespace wb
 		UINT imageHeight = images[0]->GetHeight();
 		for (size_t i = 0; i < images.size(); i++)
 		{
-			BitBlt(spriteSheet->GetHdc(), i * imageHeight, 0, imageWidth, imageHeight, images[i]->GetHdc(), 0, 0, SRCCOPY);
+			BitBlt(spriteSheet->GetHdc(), i * imageWidth, 0, imageWidth, imageHeight, images[i]->GetHdc(), 0, 0, SRCCOPY);
 		}
 
 		CreateAnimation(name, spriteSheet, Vector2::Zero, Vector2(imageWidth, imageHeight), offset, fileCount, duration);
