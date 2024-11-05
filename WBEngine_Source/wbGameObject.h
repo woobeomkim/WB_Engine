@@ -2,12 +2,23 @@
 #include "CommonInclude.h"
 #include "wbMisiile.h"
 #include "wbComponent.h"
+//#include "wbObject.h"
 
 namespace wb
 {
 	class GameObject
 	{
 	public:
+		//friend void object::Destroy(GameObject* obj);
+
+		enum class eState
+		{
+			Active,
+			Paused,
+			Dead,
+			End
+		};
+
 		GameObject();
 		~GameObject();
 
@@ -40,10 +51,27 @@ namespace wb
 			}
 			return component;
 		}
+
+		eState GetActive()
+		{
+			return mState;
+		}
+
+		void SetActive(bool power)
+		{
+			if (power == true)
+				mState = eState::Active;
+			else
+				mState = eState::Paused;
+		}
+
+		void death() { mState = eState::Dead; }
 	private:
 		void initializeTransform();
+		
 	private:
 		// 게임 오브젝트의 좌표
+		eState mState;
 		std::vector<Component*> mComponents;
 	};
 }

@@ -4,6 +4,7 @@
 #include "wbTime.h"
 #include "wbGameObject.h"
 #include "wbAnimator.h"
+#include "wbObject.h"
 
 namespace wb
 {
@@ -21,6 +22,13 @@ namespace wb
 	}
 	void CatScript::Update()
 	{
+		mDeathTime += Time::DeltaTime();
+
+		if (mDeathTime > 6.0f)
+		{
+			//object::Destroy(GetOwner());
+		}
+
 		if (!mAnimator)
 			mAnimator = GetOwner()->GetComponent<Animator>();
 		switch (mState)

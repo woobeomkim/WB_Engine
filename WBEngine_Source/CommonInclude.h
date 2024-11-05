@@ -6,6 +6,7 @@
 #include <map>
 #include <assert.h>
 #include <functional>
+#include <filesystem>
 
 #include "wbMath.h"
 #include "wbEnums.h"

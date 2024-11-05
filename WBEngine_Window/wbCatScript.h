@@ -44,5 +44,6 @@ namespace wb
 		class Animator* mAnimator;
 		eDirection mDirection;
 		float mTime = 0.0f;
+		float mDeathTime = 0.0f;
 	};
 }

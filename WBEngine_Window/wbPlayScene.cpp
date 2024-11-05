@@ -60,7 +60,7 @@ namespace wb
 
 		graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
 		Animator* catAnimator = cat->AddComponent<Animator>();
-		catAnimator->CreateAnimation(L"DownWalk", catTex
+	/*	catAnimator->CreateAnimation(L"DownWalk", catTex
 			, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
 		catAnimator->CreateAnimation(L"RightWalk", catTex
 			, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
@@ -76,12 +76,14 @@ namespace wb
 			, Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
 
 
-		catAnimator->PlayAnimation(L"SitDown", false);
-		camearaComp->SetTarget(cat);
+		catAnimator->PlayAnimation(L"SitDown", false);*/
+		catAnimator->CreateAnimationByFolder(L"MushroomIdle", L"..\\Resources\\Mushroom", Vector2::Zero, 0.1f);
+		catAnimator->PlayAnimation(L"MushroomIdle", true);
 
 		cat->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
 		cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 		//mPlayer->GetComponent<Transform>()->SetRotation(30.0f);
+		camearaComp->SetTarget(cat);
 
 		Scene::Initialize();
 	}

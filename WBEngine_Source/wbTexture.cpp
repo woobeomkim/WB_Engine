@@ -1,12 +1,37 @@
 #include "wbTexture.h"
 #include "wbApplication.h"
+#include "wbResources.h"
 
 // 해당 전역변수가 존재함을 알리는 키워드 extern
 extern wb::Application application;
 
 namespace wb::graphics
 {
-	Texture::Texture() : Resource(enums::eResourceType::Texture)
+	Texture* Texture::Create(const std::wstring& name, UINT width, UINT height)
+	{
+		Texture* image = Resources::Find<Texture>(name);
+		if (image)
+			return image;
+
+		image = new Texture();
+		image->SetWidth(width);
+		image->SetHeight(height);
+		image->SetName(name);
+
+		HDC hdc = application.GetHdc();
+		HWND hwnd = application.GetHwnd();
+
+		image->mBitmap = CreateCompatibleBitmap(hdc, width, height);
+		image->mHdc = CreateCompatibleDC(hdc);
+
+		HBITMAP oldBitmap = (HBITMAP)SelectObject(image->mHdc, image->mBitmap);
+		DeleteObject(oldBitmap);
+
+
+		Resources::Insert(name, image);
+		return image;
+	}
+	Texture::Texture() : Resource(enums::eResourceType::Texture) , mbAlpha(false)
 	{
 	}
 	Texture::~Texture()

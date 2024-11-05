@@ -5,6 +5,7 @@
 #include "wbScene.h"
 #include "wbSceneManager.h"
 #include "wbTransform.h"
+#include "wbGameObject.h"
 
 namespace wb::object
 {
@@ -31,5 +32,10 @@ namespace wb::object
 		tr->SetPosition(position);
 
 		return gameObject;
+	}
+
+	static void Destroy(GameObject* obj)
+	{
+		obj->death();
 	}
 }
