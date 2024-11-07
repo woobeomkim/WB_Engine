@@ -46,6 +46,7 @@ namespace wb
 
 		bool IsComplete() { return mbComplete; }
 		void SetAnimator(class Animator* animator) { mAnimator = animator; }
+	
 	private:
 		class Animator* mAnimator;
 		graphics::Texture* mTexture;

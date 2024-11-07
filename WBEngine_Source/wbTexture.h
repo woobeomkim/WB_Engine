@@ -28,6 +28,7 @@ namespace wb::graphics
 		HDC GetHdc() { return mHdc; }
 		eTextureType GetTextureType() { return mType; }
 		Gdiplus::Image* GetImag() { return mImage; }
+		bool IsAlpha() { return mbAlpha; }
 	private:
 		bool mbAlpha;
 		eTextureType mType;
