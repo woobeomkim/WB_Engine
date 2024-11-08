@@ -34,7 +34,7 @@
     <ClCompile Include="wbPlayerScript.cpp" />
     <ClCompile Include="wbPlayScene.cpp" />
     <ClCompile Include="wbTitleScene.cpp" />
-    <ClCompile Include="wgCatScript.cpp" />
+    <ClCompile Include="wbCatScript.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

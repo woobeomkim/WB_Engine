@@ -3,6 +3,7 @@
 #include "wbTime.h"
 #include "wbSceneManager.h"
 #include "wbResources.h"
+#include "wbCollisionManager.h"
 
 namespace wb
 {
@@ -27,6 +28,7 @@ namespace wb
 		
 		initializeEtc();
 
+		CollisionManager::Update();
 		SceneManager::Initialize();
 	}
 	void Application::Run()
@@ -40,11 +42,13 @@ namespace wb
 	{
 		Input::Update();
 		Time::Update();
+		CollisionManager::Update();
 		SceneManager::Update();
 	}
 
 	void Application::LateUpdate()
 	{
+		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 	void Application::Render()
@@ -53,6 +57,7 @@ namespace wb
 		clearRenderTarget();
 
 		Time::Render(mBackHdc);
+		CollisionManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 		
 		copyRenderTarget(mBackHdc, mHdc);
@@ -68,8 +73,13 @@ namespace wb
 	}
 	void Application::clearRenderTarget()
 	{
+		HBRUSH grayBrush = (HBRUSH)CreateSolidBrush(RGB(128, 128, 128));
+		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, grayBrush);
+
 		Rectangle(mBackHdc, -1, -1, 1601, 901);
 
+		SelectObject(mBackHdc, oldBrush);
+		DeleteObject(grayBrush);
 	}
 	void Application::copyRenderTarget(HDC source, HDC dest)
 	{

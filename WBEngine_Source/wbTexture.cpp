@@ -24,6 +24,21 @@ namespace wb::graphics
 		image->mBitmap = CreateCompatibleBitmap(hdc, width, height);
 		image->mHdc = CreateCompatibleDC(hdc);
 
+		HBRUSH transparentBrush = (HBRUSH)GetStockObject((int)HOLLOW_BRUSH);
+		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, transparentBrush);
+
+		HPEN greenPen = CreatePen(PS_SOLID, 2, RGB(0, 255, 0));
+		HPEN oldPen = (HPEN)SelectObject(hdc, greenPen);
+
+		Rectangle(image->mHdc, -1, -1, image->GetWidth() + 1, image->GetHeight() + 1);
+
+		SelectObject(hdc, oldBrush);
+		//DeleteObject(transparentBrush);
+		//StockObject라 삭제할필요가없다.
+
+		SelectObject(hdc, oldPen);
+		DeleteObject(greenPen);
+
 		HBITMAP oldBitmap = (HBITMAP)SelectObject(image->mHdc, image->mBitmap);
 		DeleteObject(oldBitmap);
 

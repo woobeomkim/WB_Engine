@@ -51,7 +51,7 @@
     <ClCompile Include="wbCat.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
-    <ClCompile Include="wgCatScript.cpp">
+    <ClCompile Include="wbCatScript.cpp">
       <Filter>Script</Filter>
     </ClCompile>
   </ItemGroup>

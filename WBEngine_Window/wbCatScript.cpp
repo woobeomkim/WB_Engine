@@ -117,17 +117,17 @@ namespace wb
 		
 		
 		// 마우스 위치 방향으로 회전후 마우스 위치 이동 (벡터 뺄셈 활용)
-		Transform* plTr = mPlayer->GetComponent<Transform>();
-		Vector2 playerPos = plTr->GetPosition();
-		Vector2 dest = mDest - playerPos;
-		dest.normalize();
+		//Transform* plTr = mPlayer->GetComponent<Transform>();
+		//Vector2 playerPos = plTr->GetPosition();
+		//Vector2 dest = mDest - playerPos;
+		//dest.normalize();
 
-		float rotDegree = Vector2::Dot(dest, Vector2::Right); // cos 세타
-		rotDegree = acosf(rotDegree);
-		
-		rotDegree = ConvertDegree(rotDegree);
+		//float rotDegree = Vector2::Dot(dest, Vector2::Right); // cos 세타
+		//rotDegree = acosf(rotDegree);
+		//
+		//rotDegree = ConvertDegree(rotDegree);
 
-		pos += dest * (100.0f * Time::DeltaTime());
+		//pos += dest * (100.0f * Time::DeltaTime());
 
 	
 		//pos = (pos * 100.0f * Time::DeltaTime());

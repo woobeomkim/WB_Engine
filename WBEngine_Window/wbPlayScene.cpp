@@ -15,6 +15,8 @@
 #include "wbAnimator.h"
 #include "wbCat.h"
 #include "wbCatScript.h"
+#include "wbBoxCollider2D.h"
+#include "wbCollisionManager.h"
 
 namespace wb
 {
@@ -26,6 +28,8 @@ namespace wb
 	}
 	void PlayScene::Initialize()
 	{
+		CollisionManager::CollisionCheck(eLayerType::Player, eLayerType::Animal, true);
+
 		// main camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None, Vector2(344.0f, 440.0f));
 		Camera* camearaComp = camera->AddComponent<Camera>();
@@ -35,7 +39,9 @@ namespace wb
 		// 게임오브젝트 만들기전에 리소스들 전부 Load 해두면 좋다
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player /*, Vector2(100, 100) */ );
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
-		
+		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
+		collider->SetOffset(Vector2(-50.0f, -50.0f));
+
 
 		graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
 		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
@@ -59,9 +65,15 @@ namespace wb
 		catSr->SetOwner(cat);
 		catSr->SetPlayer(mPlayer);
 
+
 		graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
 		Animator* catAnimator = cat->AddComponent<Animator>();
-	/*	catAnimator->CreateAnimation(L"DownWalk", catTex
+	
+		BoxCollider2D* BoxCatCollider = cat->AddComponent<BoxCollider2D>();
+
+		BoxCatCollider->SetOffset(Vector2(-50.0f, -50.0f));
+		
+		/*	catAnimator->CreateAnimation(L"DownWalk", catTex
 			, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
 		catAnimator->CreateAnimation(L"RightWalk", catTex
 			, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
@@ -81,8 +93,8 @@ namespace wb
 		catAnimator->CreateAnimationByFolder(L"MushroomIdle", L"..\\Resources\\Mushroom", Vector2::Zero, 0.1f);
 		catAnimator->PlayAnimation(L"MushroomIdle", true);
 
-		cat->GetComponent<Transform>()->SetPosition(Vector2(360.0f, 420.0f));
-		cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+		cat->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
+		cat->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
 		//mPlayer->GetComponent<Transform>()->SetRotation(30.0f);
 		//camearaComp->SetTarget(cat);
 

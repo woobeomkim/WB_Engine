@@ -65,6 +65,11 @@ namespace wb
 				mState = eState::Paused;
 		}
 
+		bool IsActive()
+		{
+			return mState == eState::Active;
+		}
+
 		void death() { mState = eState::Dead; }
 	private:
 		void initializeTransform();
