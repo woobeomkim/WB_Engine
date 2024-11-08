@@ -30,7 +30,7 @@ namespace wb
 	private:
 		eState mState;
 		class Animator* mAnimator;
-
+	
 		//void (*StartEvent)();
 		//void (*ComplteEvent)();
 		//void (*EndEvent)();

@@ -49,14 +49,15 @@ namespace wb
 		
 		playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::AttackEffect, plScript);
 
-		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 100.0f));
+		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 250.0f));
 		//mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 	
 
 		Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal /*, Vector2(100, 100) */);
 
-		cat->AddComponent<CatScript>();
-	
+		CatScript* catSr = cat->AddComponent<CatScript>();
+		catSr->SetOwner(cat);
+		catSr->SetPlayer(mPlayer);
 
 		graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
 		Animator* catAnimator = cat->AddComponent<Animator>();
@@ -80,10 +81,10 @@ namespace wb
 		catAnimator->CreateAnimationByFolder(L"MushroomIdle", L"..\\Resources\\Mushroom", Vector2::Zero, 0.1f);
 		catAnimator->PlayAnimation(L"MushroomIdle", true);
 
-		cat->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
+		cat->GetComponent<Transform>()->SetPosition(Vector2(360.0f, 420.0f));
 		cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 		//mPlayer->GetComponent<Transform>()->SetRotation(30.0f);
-		camearaComp->SetTarget(cat);
+		//camearaComp->SetTarget(cat);
 
 		Scene::Initialize();
 	}

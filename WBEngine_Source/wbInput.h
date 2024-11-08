@@ -34,10 +34,10 @@ namespace wb
 		static void Initialize();
 		static void Update();
 		
-		static bool GetKeyDown(eKeyCode key) { return Keys[(UINT)key].state == eKeyState::Down; }
-		static bool GetKeyUp(eKeyCode key) { return Keys[(UINT)key].state == eKeyState::Up; }
-		static bool GetKey(eKeyCode key) { return Keys[(UINT)key].state == eKeyState::Pressed; }
-		static math::Vector2 GetMousePosition() { return mMousePoistion; }
+		__forceinline static bool GetKeyDown(eKeyCode key) { return Keys[(UINT)key].state == eKeyState::Down; }
+		__forceinline static bool GetKeyUp(eKeyCode key) { return Keys[(UINT)key].state == eKeyState::Up; }
+		__forceinline static bool GetKey(eKeyCode key) { return Keys[(UINT)key].state == eKeyState::Pressed; }
+		__forceinline static math::Vector2 GetMousePosition() { return mMousePoistion; }
 
 	private:
 		static void createKeys();

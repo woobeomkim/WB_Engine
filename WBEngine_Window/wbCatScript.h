@@ -32,6 +32,10 @@ namespace wb
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
+		void SetPlayer(class GameObject* player) { mPlayer = player; }
+
+		Vector2 mDest;
+
 	private:
 		void sitDown();
 		void move();
@@ -39,11 +43,14 @@ namespace wb
 
 		void playWalkAnimationByDirection(eDirection dir);
 		void translate(Transform* tr);
+
 	private:
 		eState mState;
 		class Animator* mAnimator;
 		eDirection mDirection;
 		float mTime = 0.0f;
 		float mDeathTime = 0.0f;
+		class GameObject* mPlayer;
+		float mRadian;
 	};
 }

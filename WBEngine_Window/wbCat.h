@@ -15,7 +15,7 @@ namespace wb
 		void Render(HDC hdc) override;
 
 	private:
-
+		
 	};
 }
 

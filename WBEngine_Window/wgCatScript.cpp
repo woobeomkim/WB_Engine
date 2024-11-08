@@ -11,6 +11,7 @@ namespace wb
 	CatScript::CatScript()
 		: mState(eState::SitDown)
 		, mAnimator(nullptr)
+		, mRadian(0.0f)
 	{
 	}
 	CatScript::~CatScript()
@@ -91,7 +92,48 @@ namespace wb
 	{
 		mTime += Time::DeltaTime();
 
-		if (mTime > 3.0f)
+		if (mTime > 2.0f)
+		{
+			//object::Destroy(GetOwner());
+		}
+
+		Transform* tr = GetOwner()->GetComponent<Transform>();
+
+		Vector2 pos = tr->GetPosition();
+		//pos.x -= 100.0f * Time::DeltaTime();
+		
+		//Vector2 mousePos = Input::GetMousePosition();
+		
+		// 마우스 위치 이동 (벡터 뺄셈 활용)
+		/*Transform* plTr = mPlayer->GetComponent<Transform>();
+		Vector2 playerPos = plTr->GetPosition();
+		Vector2 dest = mDest - playerPos;
+		pos += dest.normalize() * (100.0f * Time::DeltaTime());*/
+
+		// 삼각함수를 통한 이동
+		/*mRadian += 5.0f* Time::DeltaTime();
+		pos += Vector2(1.0f,(1.0f*cosf(mRadian))).normalize() * (100.0f * Time::DeltaTime());
+		*/
+		
+		
+		// 마우스 위치 방향으로 회전후 마우스 위치 이동 (벡터 뺄셈 활용)
+		Transform* plTr = mPlayer->GetComponent<Transform>();
+		Vector2 playerPos = plTr->GetPosition();
+		Vector2 dest = mDest - playerPos;
+		dest.normalize();
+
+		float rotDegree = Vector2::Dot(dest, Vector2::Right); // cos 세타
+		rotDegree = acosf(rotDegree);
+		
+		rotDegree = ConvertDegree(rotDegree);
+
+		pos += dest * (100.0f * Time::DeltaTime());
+
+	
+		//pos = (pos * 100.0f * Time::DeltaTime());
+		tr->SetPosition(pos);
+
+		/*if (mTime > 3.0f)
 		{
 			mState = CatScript::eState::Walk;
 			int direction = rand() % 4;
@@ -99,7 +141,7 @@ namespace wb
 
 			playWalkAnimationByDirection(mDirection);
 			mTime = 0.0f;
-		}
+		}*/
 		/*if (Input::GetKey(eKeyCode::Right))
 		{
 			mState = CatScript::eState::Walk;
