@@ -88,6 +88,15 @@ namespace wb
 	void CatScript::Render(HDC hdc)
 	{
 	}
+	void CatScript::OnCollisionEnter(Collider* other)
+	{
+	}
+	void CatScript::OnCollisionStay(Collider* other)
+	{
+	}
+	void CatScript::OnCollisionExit(Collider* other)
+	{
+	}
 	void CatScript::sitDown()
 	{
 		mTime += Time::DeltaTime();

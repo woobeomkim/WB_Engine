@@ -1,4 +1,6 @@
 #include "wbScript.h"
+#include "wbCollider.h"
+#include "wbComponent.h"
 
 namespace wb
 {
@@ -18,6 +20,15 @@ namespace wb
 	{
 	}
 	void Script::Render(HDC hdc)
+	{
+	}
+	void Script::OnCollisionEnter(Collider* otehr)
+	{
+	}
+	void Script::OnCollisionStay(Collider* otehr)
+	{
+	}
+	void Script::OnCollisionExit(Collider* otehr)
 	{
 	}
 }

@@ -35,4 +35,11 @@ namespace wb::enums
 		Prefab,
 		End,
 	};
+
+	enum class eColliderType
+	{
+		Rect2D,
+		Circle2D,
+		End
+	};
 }
