@@ -38,7 +38,10 @@ namespace wb
 
 		// 게임오브젝트 만들기전에 리소스들 전부 Load 해두면 좋다
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player /*, Vector2(100, 100) */ );
+		object::DontDestroyOnLoad(mPlayer);
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
+		
+		
 		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
 		collider->SetOffset(Vector2(-50.0f, -50.0f));
 

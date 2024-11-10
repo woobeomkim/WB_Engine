@@ -20,6 +20,13 @@ namespace wb
 		const std::vector<GameObject*>& GetGameObjects() { return mGameObjects; }
 
 		void AddGameObject(GameObject* gameObject);
+		void EraseGameObject(GameObject* gameObject);
+
+	private:
+		void findDeadGameObjects(OUT std::vector<GameObject*>& gameObjs);
+		void deleteGameObjects(std::vector<GameObject*> gameObjs);
+		void eraseDeadGameObject();
+	
 	private:
 		std::vector<GameObject*> mGameObjects;
 	};

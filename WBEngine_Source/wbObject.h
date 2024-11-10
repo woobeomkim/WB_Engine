@@ -13,6 +13,7 @@ namespace wb::object
 	static T* Instantiate(wb::enums::eLayerType type)
 	{
 		T* gameObject = new T();
+		gameObject->SetLayerType(type);
 		Scene* activeScene = SceneManager::GetActiveScene();
 		Layer* layer = activeScene->GetLayer(type);
 		layer->AddGameObject(gameObject);
@@ -37,5 +38,16 @@ namespace wb::object
 	static void Destroy(GameObject* obj)
 	{
 		obj->death();
+	}
+
+	static void DontDestroyOnLoad(GameObject* gameObject)
+	{
+		Scene* activeScene = SceneManager::GetActiveScene();
+		// 현재씬에서 게임오브젝트를 지워준다.
+		activeScene->EraseGameObject(gameObject);
+
+		// 해당 게임오브젝트를 -> DontDestroy 씬으로 넣어준다
+		Scene* dontDestroyOnLoad = SceneManager::GetDontDestroyOnLoad();
+		dontDestroyOnLoad->AddGameObject(gameObject, gameObject->GetLayerType());
 	}
 }

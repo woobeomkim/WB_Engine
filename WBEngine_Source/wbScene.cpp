@@ -80,4 +80,10 @@ namespace wb
 		mLayers[(UINT)type]->AddGameObject(gameObj);
 	}
 
+	void Scene::EraseGameObject(GameObject* gameObj)
+	{
+		enums::eLayerType layerType = gameObj->GetLayerType();
+		mLayers[(UINT)layerType]->EraseGameObject(gameObj);
+	}
+
 }

@@ -5,7 +5,7 @@
 
 namespace wb
 {
-	GameObject::GameObject() : mComponents{} , mState(eState::Active)
+	GameObject::GameObject() : mComponents{} , mState(eState::Active) ,mLayerType(enums::eLayerType::None)
 	{
 		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();

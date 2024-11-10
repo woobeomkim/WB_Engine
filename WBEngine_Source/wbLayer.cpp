@@ -89,4 +89,34 @@ namespace wb
 			return;
 		mGameObjects.push_back(gameObject);
 	}
+	void Layer::EraseGameObject(GameObject* gameObject)
+	{
+		// std::erase() iter 넣어줘서 해당 이터레이터와 같은 객체 삭제
+
+
+		// 조건이 참인것만 삭제
+		std::erase_if(mGameObjects,
+			[=](GameObject* gameObj)
+			{
+				return gameObj == gameObject;
+			});
+	}
+
+
+	void Layer::findDeadGameObjects(OUT std::vector<GameObject*>& gameObjs)
+	{
+	}
+
+	void Layer::deleteGameObjects(std::vector<GameObject*> gameObjs)
+	{
+	}
+
+	void Layer::eraseDeadGameObject()
+	{
+		std::erase_if(mGameObjects,
+			[](GameObject* gameObj)
+			{
+				return (gameObj)->IsDead();
+			});
+	}
 }

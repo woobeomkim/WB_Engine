@@ -70,6 +70,14 @@ namespace wb
 			return mState == eState::Active;
 		}
 
+		bool IsDead()
+		{
+			return mState == eState::Dead;
+		}
+
+		void SetLayerType(enums::eLayerType layerType) { mLayerType = layerType; }
+		enums::eLayerType GetLayerType() { return mLayerType; }
+
 		void death() { mState = eState::Dead; }
 	private:
 		void initializeTransform();
@@ -78,5 +86,6 @@ namespace wb
 		// 게임 오브젝트의 좌표
 		eState mState;
 		std::vector<Component*> mComponents;
+		enums::eLayerType mLayerType;
 	};
 }
