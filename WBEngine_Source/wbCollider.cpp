@@ -5,8 +5,10 @@
 namespace wb
 {
 	UINT32 Collider::mCollisionID = 1;
-	Collider::Collider()
+
+	Collider::Collider(enums::eColliderType type)
 		: Component(enums::eComponentType::Collider)
+		, mType(type)
 		, mID(mCollisionID++)
 		, mSize(Vector2::One)
 	{
@@ -33,8 +35,12 @@ namespace wb
 	}
 	void Collider::OnCollisionStay(Collider* other)
 	{
+		Script* script = GetOwner()->GetComponent<Script>();
+		script->OnCollisionStay(other);
 	}
 	void Collider::OnCollisionExit(Collider* other)
 	{
+		Script* script = GetOwner()->GetComponent<Script>();
+		script->OnCollisionExit(other);
 	}
 }

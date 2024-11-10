@@ -10,6 +10,7 @@ namespace wb
 {
 	std::bitset<(UINT)enums::eLayerType::Max> CollisionManager::mCollisionLayerMatrix[(UINT)enums::eLayerType::Max] = {};
 	std::unordered_map<UINT64, bool> CollisionManager::mCollisionMap = {};
+	
 	void CollisionManager::Initialize()
 	{
 	}

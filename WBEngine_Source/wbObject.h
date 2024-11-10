@@ -25,6 +25,7 @@ namespace wb::object
 	static T* Instantiate(wb::enums::eLayerType type,math::Vector2 position)
 	{
 		T* gameObject = new T();
+		gameObject->SetLayerType(type);
 		Scene* activeScene = SceneManager::GetActiveScene();
 		Layer* layer = activeScene->GetLayer(type);
 		layer->AddGameObject(gameObject);

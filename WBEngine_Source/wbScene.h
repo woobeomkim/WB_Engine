@@ -24,6 +24,9 @@ namespace wb
 		void EraseGameObject(GameObject* gameObj);
 		Layer* GetLayer(enums::eLayerType type) { return mLayers[(UINT)type]; }
 	private:
+		void createLayers();
+	
+	private:
 		std::vector<Layer*> mLayers;
 	};
 }

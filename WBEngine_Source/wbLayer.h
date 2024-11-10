@@ -24,7 +24,7 @@ namespace wb
 
 	private:
 		void findDeadGameObjects(OUT std::vector<GameObject*>& gameObjs);
-		void deleteGameObjects(std::vector<GameObject*> gameObjs);
+		void deleteGameObjects(std::vector<GameObject*> deleteObjs);
 		void eraseDeadGameObject();
 	
 	private:

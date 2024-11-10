@@ -52,7 +52,7 @@ namespace wb
 			return component;
 		}
 
-		eState GetActive()
+		eState GetState()
 		{
 			return mState;
 		}

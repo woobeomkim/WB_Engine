@@ -7,6 +7,7 @@
 namespace wb
 {
 	CircleCollider2D::CircleCollider2D()
+		:Collider(enums::eColliderType::Circle2D)
 	{
 	}
 	CircleCollider2D::~CircleCollider2D()

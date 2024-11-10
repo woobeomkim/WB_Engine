@@ -38,12 +38,15 @@ namespace wb
 
 		// 게임오브젝트 만들기전에 리소스들 전부 Load 해두면 좋다
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player /*, Vector2(100, 100) */ );
-		object::DontDestroyOnLoad(mPlayer);
+		//object::DontDestroyOnLoad(mPlayer);
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 		
 		
-		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
-		collider->SetOffset(Vector2(-50.0f, -50.0f));
+		//BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
+		//collider->SetOffset(Vector2(-50.0f, -50.0f));
+
+		CircleCollider2D* circleCollider = mPlayer->AddComponent<CircleCollider2D>();
+		circleCollider->SetOffset(Vector2(-50.0f, -50.0f));
 
 
 		graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
@@ -65,16 +68,19 @@ namespace wb
 		Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal /*, Vector2(100, 100) */);
 
 		CatScript* catSr = cat->AddComponent<CatScript>();
+		
 		catSr->SetOwner(cat);
 		catSr->SetPlayer(mPlayer);
-
 
 		graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
 		Animator* catAnimator = cat->AddComponent<Animator>();
 	
-		BoxCollider2D* BoxCatCollider = cat->AddComponent<BoxCollider2D>();
+		//BoxCollider2D* BoxCatCollider = cat->AddComponent<BoxCollider2D>();
+		//BoxCatCollider->SetOffset(Vector2(-50.0f, -50.0f));
 
-		BoxCatCollider->SetOffset(Vector2(-50.0f, -50.0f));
+		CircleCollider2D* circleCatCollider = cat->AddComponent<CircleCollider2D>();
+		circleCatCollider->SetOffset(Vector2(-50.0f, -50.0f));
+
 		
 		/*	catAnimator->CreateAnimation(L"DownWalk", catTex
 			, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
