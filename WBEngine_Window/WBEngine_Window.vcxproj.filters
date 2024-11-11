@@ -34,6 +34,9 @@
     <ClInclude Include="wbCatScript.h">
       <Filter>Script</Filter>
     </ClInclude>
+    <ClInclude Include="wbTile.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="wbPlayScene.cpp">
@@ -53,6 +56,9 @@
     </ClCompile>
     <ClCompile Include="wbCatScript.cpp">
       <Filter>Script</Filter>
+    </ClCompile>
+    <ClCompile Include="wbTile.cpp">
+      <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -18,6 +18,7 @@ namespace wb::enums
 	{
 		None,
 		BackGround,
+		Tile,
 		// Tree
 		// character
 		Animal,

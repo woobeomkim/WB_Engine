@@ -26,6 +26,7 @@
     <ClInclude Include="wbPlayer.h" />
     <ClInclude Include="wbPlayerScript.h" />
     <ClInclude Include="wbPlayScene.h" />
+    <ClInclude Include="wbTile.h" />
     <ClInclude Include="wbTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
@@ -33,6 +34,7 @@
     <ClCompile Include="wbPlayer.cpp" />
     <ClCompile Include="wbPlayerScript.cpp" />
     <ClCompile Include="wbPlayScene.cpp" />
+    <ClCompile Include="wbTile.cpp" />
     <ClCompile Include="wbTitleScene.cpp" />
     <ClCompile Include="wbCatScript.cpp" />
   </ItemGroup>

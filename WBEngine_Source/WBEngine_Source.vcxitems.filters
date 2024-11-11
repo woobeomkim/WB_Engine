@@ -78,6 +78,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)wbDontDestroyOnLoad.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbToolScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)wbTileMapRenderer.cpp">
+      <Filter>Component\TileMapRenderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
@@ -166,6 +172,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)wbDontDestroyOnLoad.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbToolScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)wbTileMapRenderer.h">
+      <Filter>Component\TileMapRenderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -212,6 +224,9 @@
     </Filter>
     <Filter Include="Component\Collider">
       <UniqueIdentifier>{fc63ca96-98d1-4707-8d79-a7720bbb3537}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\TileMapRenderer">
+      <UniqueIdentifier>{7b6c1ec5-5dca-4443-98f5-f1fb33324d15}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
