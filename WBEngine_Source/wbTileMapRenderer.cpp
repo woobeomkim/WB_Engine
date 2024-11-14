@@ -7,13 +7,15 @@
 
 namespace wb
 {
+	Vector2 TileMapRenderer::TileSize = Vector2::One;
 	TileMapRenderer::TileMapRenderer()
 		: Component(enums::eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
-		, mSize(Vector2::One)
+		, mSize(Vector2(3.0f,3.0f))
 		, mIndex(Vector2::Zero)
 		, mTileSize(16.0f,16.0f)
 	{
+		TileSize = mTileSize * mSize;
 	}
 	TileMapRenderer::~TileMapRenderer()
 	{

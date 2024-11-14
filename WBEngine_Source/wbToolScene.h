@@ -22,3 +22,5 @@ namespace wb
 		
 	};
 }
+
+LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);

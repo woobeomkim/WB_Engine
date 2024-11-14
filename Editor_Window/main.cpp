@@ -6,6 +6,10 @@
 #include "..\\WBEngine_Source\\wbApplication.h"
 #include "..\\WBEngine_Window\\wbLoadScene.h"
 #include "..\\WBEngine_Window\\wbLoadResources.h"
+#include "..\\WBEngine_Source\\wbResources.h"
+#include "..\\WBEngine_Source\\wbTexture.h"
+#include "..\\WBEngine_Source\\wbToolScene.h"
+
 
 #pragma comment (lib,"..\\x64\\Debug\\WbEngine_Window.lib")
 wb::Application application;
@@ -25,7 +29,6 @@ WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름�
 ATOM MyRegisterClass(HINSTANCE hInstance,const wchar_t* name, WNDPROC proc);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
-LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -99,7 +102,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance,const wchar_t* name, WNDPROC proc)
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_EDITORWINDOW));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_EDITORWINDOW);
+    wcex.lpszMenuName   = nullptr;
     wcex.lpszClassName  = name;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -127,7 +130,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
    HWND ToolHWnd = CreateWindowW(L"TITLEWINDOW", L"TileWindows", WS_OVERLAPPEDWINDOW,
-       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+       0, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
 
    application.Initailize(hWnd, width, height);
@@ -139,9 +142,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
-   
-   ShowWindow(ToolHWnd, nCmdShow);
-   UpdateWindow(ToolHWnd);
 
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, nullptr);
    // load Scene
@@ -152,6 +152,19 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    
    srand((unsigned int)&a);
    //srand(time(0));
+
+   //Tile 윈도우 크기 조정
+   wb::graphics::Texture* texture
+       = wb::Resources::Find<wb::graphics::Texture>(L"SpringFloor");
+   RECT rect = { 0,0,texture->GetWidth(),texture->GetHeight() };
+   AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, false);
+   
+   UINT toolWidth = rect.right - rect.left;
+   UINT toolHeight = rect.bottom - rect.top;
+   SetWindowPos(ToolHWnd, nullptr, width, 0, toolWidth, toolHeight, 0);
+   ShowWindow(ToolHWnd, nCmdShow);
+   UpdateWindow(ToolHWnd);
+
    return TRUE;
 }
 
@@ -194,44 +207,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             EndPaint(hWnd, &ps);
         }
         break;
-    case WM_DESTROY:
-        PostQuitMessage(0);
-        break;
-    default:
-        return DefWindowProc(hWnd, message, wParam, lParam);
-    }
-    return 0;
-}
-
-LRESULT CALLBACK WndTileProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
-{
-    switch (message)
-    {
-    case WM_COMMAND:
-    {
-        int wmId = LOWORD(wParam);
-        // 메뉴 선택을 구문 분석합니다:
-        switch (wmId)
-        {
-        case IDM_ABOUT:
-            DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-            break;
-        case IDM_EXIT:
-            DestroyWindow(hWnd);
-            break;
-        default:
-            return DefWindowProc(hWnd, message, wParam, lParam);
-        }
-    }
-    break;
-    case WM_PAINT:
-    {
-        PAINTSTRUCT ps;
-        HDC hdc = BeginPaint(hWnd, &ps);
-        // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
-        EndPaint(hWnd, &ps);
-    }
-    break;
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
